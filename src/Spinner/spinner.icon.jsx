@@ -1,4 +1,6 @@
 function SpinnerIcon({ colorHex }) {
+  const strokeWidth = 32
+
   return (
     <svg
       color={colorHex}
@@ -17,9 +19,15 @@ function SpinnerIcon({ colorHex }) {
         </linearGradient>
       </defs>
 
-      <g strokeWidth="16">
-        <path stroke="url(#spinner-secondHalf)" d="M 8 100 A 92 92 0 0 1 192 100" />
-        <path stroke="url(#spinner-firstHalf)" d="M 192 100 A 92 92 0 0 1 8 100" />
+      <g strokeWidth={strokeWidth}>
+        <path
+          stroke="url(#spinner-secondHalf)"
+          d={`M ${strokeWidth/2} 100 A ${100 - strokeWidth/2} ${100 - strokeWidth/2} 0 0 1 ${200 - strokeWidth/2} 100`}
+        />
+        <path
+          stroke="url(#spinner-firstHalf)"
+          d={`M ${200 - strokeWidth/2} 100 A ${100 - strokeWidth/2} ${100 - strokeWidth/2} 0 0 1 ${strokeWidth/2} 100`}
+        />
       </g>
       <animateTransform
         from="0 0 0"
